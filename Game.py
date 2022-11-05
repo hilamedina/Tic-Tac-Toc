@@ -1,6 +1,5 @@
 from Board import Board 
 from Player import HumanPlayer, ComputerPlayer
-# from Enums import GameMode , Mark
 
 class Game:
     currPlayer = None
@@ -13,7 +12,6 @@ class Game:
     mode = None
     winner = None
     currentGame = True
-
 
     def start(self):
         self.__chooseMode() 
@@ -50,7 +48,7 @@ class Game:
         self.board.printBoard()
         # check if game ended
         if (self.board.checkIfWin()):
-            print(f"Winner is {self.currPlayer.getName()}")
+            print(f"The winner is {self.currPlayer.getName()}")
             self.currentGame = False
         elif (self.board.checkIfTie()):
             print("It is a tie!")
@@ -70,6 +68,7 @@ class Game:
         else:
             self.currPlayer = self.player2
             print(f"{self.player2.getName()} you go first")
+
 
 game = Game()
 game.start()

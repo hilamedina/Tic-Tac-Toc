@@ -6,7 +6,6 @@ class Board:
     
     def getCell(self, cellNumber):
        return self.board[cellNumber] 
-
     def checkIfWin(self):
            return self.checkRow() or self.checkDiagonal() or self.checkCol()
 
