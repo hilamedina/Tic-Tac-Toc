@@ -47,7 +47,7 @@ class Game:
         self.__setUpPlayers()
         self.__whoGoesFirst()
         if self.mode == 1:
-            if self.currPlayer.makeRandonMoveIfComputerStart(self.board):
+            if self.currPlayer.makeRandomMove(self.board):
                 self.__endTurn()
 
         while self.currentGame:

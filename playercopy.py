@@ -12,14 +12,14 @@ class Player:
     def getName(self):
         return self.__name
 
-    def makeRandonMoveIfComputerStart(self):
+    def makeRandomMove(self):
         pass
 
     def makePlayerTurn(self, board):
         pass
         
 class HumanPlayer(Player):
-    def makeRandonMoveIfComputerStart(self, board):
+    def makeRandomMove(self, board):
         return False
     
     def makePlayerTurn(self, board):
@@ -30,7 +30,7 @@ class HumanPlayer(Player):
             print(board)
 
 class ComputerPlayer(Player):
-    def makeRandonMoveIfComputerStart(self, board):
+    def makeRandomMove(self, board):
         import random
         cellNumber = random.randint(0,8)
         board.setCell(cellNumber, self.getMark())
