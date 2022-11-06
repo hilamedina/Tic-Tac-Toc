@@ -1,5 +1,6 @@
 from Board import Board 
 from numbers import Number
+import random
 
 class Player:
     array = []
@@ -18,7 +19,6 @@ class Player:
         pass
 
     def askForRandomMove(self,board):
-        import random
         move = random.randrange(0,9)
         if board.getCell(move) != None:
             return self.askForRandomMove(board)
@@ -72,13 +72,11 @@ class ComputerPlayer(Player):
                     
     def canWinNextMove(self,board,mark):
         for i in range(0, 9):
-                boardCopy = self.getDuplicate(board)
-                print("checkboard",boardCopy.boardArray)
-                if boardCopy.boardArray[i] == None:
-                    boardCopy.setCell(i,mark)
-                    if boardCopy.checkIfWin(): 
-                        print(i, "check" )
-                        return i       
+            boardCopy = self.getDuplicate(board)
+            if boardCopy.boardArray[i] == None:
+                boardCopy.setCell(i,mark)
+                if boardCopy.checkIfWin(): 
+                    return i       
         return False
 
     def getDuplicate(self ,board):
@@ -91,8 +89,7 @@ class ComputerPlayer(Player):
         else: 
             mark = "O"
         return self.canWinNextMove(board,mark)
-
-            
+       
     def isSpaceFree(self,board,move):
         return board[move] == None
     
@@ -100,7 +97,6 @@ class ComputerPlayer(Player):
     def checkForCorners(self,board):
         for i in [0,2,6,8]:
             if board.boardArray[i] == None:
-                print("check",board.boardArray[i])
                 return i
         return False
 
@@ -110,11 +106,7 @@ class ComputerPlayer(Player):
                 return i
         return False
        
-    def setCopyCell(self,copy,cellNumber,mark):
-        copy[cellNumber] = mark
 
-    def RemoveCopyCell(self,copy,cellNumber):
-        copy[cellNumber] = None
 
    
 
